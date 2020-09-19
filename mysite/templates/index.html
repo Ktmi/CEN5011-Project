@@ -1,0 +1,190 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Home</title>
+     <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <!--<link rel="stylesheet" href="stylesheet.css"> -->
+    <style>
+
+        hr { 
+              display: block;
+              margin-top: 0.5em;
+              margin-bottom: 0.5em;
+              margin-left: auto;
+              margin-right: auto;
+              border-style: inset;
+              border-width: 1px;
+        }   
+        
+        .bg{
+            background-image: linear-gradient(black, rgb(60, 60, 60));
+            background-size:cover;
+            background-repeat: no-repeat;
+        }
+       
+        .impact{
+            font-family: Impact, "Bitstream Charter", serif;
+        }
+        
+        .bg-black{
+            background-color: black;
+        }
+  
+    </style>
+    
+</head>
+<body class="bg">
+<!-- Header -->
+<div class="jumbotron text-center mb-0 bg-black impact">
+    <h1 class="display-1 text-white" style="font-family:"Impact"">MBCB Gaming</h1>
+</div style="font-size: 25px">
+<!-- /Header -->
+    
+<!-- Navbar -->
+<nav class="navbar navbar-expand-md navbar-fixed-top navbar-dark bg-black main-nav" style="font-size: 25px">
+    <div class="container my-auto" style="margin-top:30px">
+        <ul class="nav navbar-nav ">
+            <li class="nav-item mx-3">
+                <a class="nav-link active" href="index.php">Home</a>
+            </li>
+            <li class="nav-item mx-3">
+                <a class="nav-link" href="forum.php">Forum</a>
+            </li>
+            <li class="nav-item mx-3">
+                <a class="nav-link" href="donate.html">Donate</a>
+            </li>
+            <li class="nav-item mx-3">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+            </li>
+        </ul>
+       
+        <!-- Login and Signup VS Member -->
+        <div class="float-right">
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item mx-3">
+                            <a class="nav-link" href="login.php">Login</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link" href="register.php">Sign Up</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+            <div class="">
+                <div class="dropdown">
+                  <button type="button" class="btn btn-secondary dropdown-toggle bg-primary" data-toggle="dropdown">
+                    <a style="color:white;font-size: 20px;"></a>
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item text-danger" href="log_out.php">Logout</a>
+                    <a class="dropdown-item" href="resetpassword.php">Reset Password</a>
+                    <a class="dropdown-item" href="#">Profile</a>
+                  </div>
+                </div> 
+            </div>
+        </div>
+        <!-- /Login and Signup VS Member -->
+        
+    </div>
+</nav>
+<!-- /Navbar -->   
+ 
+<div>
+    <!-- Main content -->
+    <div class="row mx-auto">
+        <div class="col-sm-8 shadow-sm mb-4 mx-auto bg-white rounded h-100" style="padding: 15px; margin-top: 30px;">
+            <h1 class="text-center font-weight-bold mb-4">News</h1>
+            <div class="">
+                <hr class="mt10 mb10"/>
+                <div>
+                    <h2 class="text-center" style="text"><u>Welcome to MBCB Gaming</u></h2>
+                    <p class="mx-3 px-5">Hello Community,<br><br>
+                    Welcome to the MBCB Gaming community.  We are a small group of gamers that want to share our love of games by hosting servers, such as Arma 3, Rust, Minecraft, etc.  We are dedicated to making your gaming experience as enjoyable as it can get.  If you would like to make suggestions on which new server to host you can <a href="contact_us.php">contact us</a>.  Hope you all enjoy your gaming experience on our servers.
+                    <br><br>- MBCB Gaming Staff</p>
+                    
+                </div>
+            
+            </div>
+    
+        </div>
+    
+        <!-- Right Column-->
+        <div class="col-sm-3 mx-auto"> 
+            <div>
+                
+                <!-- Server Donation Goals -->
+                <div class="col shadow-sm p-4 mb-4 bg-white rounded mb-auto" style="padding: 15px; margin-top: 30px;">
+                    <h3 class="border mb-3 text-center font-weight-bold">Donation Goal</h3>
+                    <h5 style="text-align: center">Rust Server</h5>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:40%"><?php include('donation_')?></div>
+                    </div>
+                </div>
+                <!-- /Server Donation Goals -->
+                
+                <!-- Top Donators -->
+                <div class="col shadow-sm p-4 mb-4 bg-white rounded mb-auto" style="padding: 15px; margin-top: 30px;">
+                    <h3 class="border mb-3 text-center font-weight-bold">Top Donators</h3>
+                    <h5 class="text-center font-weight-bold">Rust Server</h5>
+                    <div class="justify-center">
+                        <ul class="justify-center">
+                            
+                        </ul>
+                    </div>
+                </div>
+                <!-- /Top Donators -->
+                
+                <!-- Server Status -->
+                <div class="col shadow-sm p-4 mb-4 bg-white rounded mb-auto" style="padding: 15px; margin-top: 30px;">
+                    <h3 class="border mb-3 text-center font-weight-bold">Server Status</h3>
+                    
+                    <!-- Discord Widget -->
+                    <h5 class="text-center font-weight-bold mb-2">Discord Server</h5>
+                    
+                    <div class="embed-responsive embed-responsive-16by9 mb-5" style="height: 500px">
+                    </div>
+                    <!-- Discord Widget -->
+              
+                    <!-- Teamspeak Widget _-->
+                    <h5 class="text-center font-weight-bold mb-2">Teamspeak Server</h5> 
+                    
+                    <div class="mb-5">
+
+                    </div>
+                    <!-- Teamspeak Widget _-->
+                    
+                    <!-- /Server Status -->
+                    <h5 class="text-center font-weight-bold mb-2">Rust Server</h5>
+                    <div class="row h-100 justify-content-center align-items-center mb-2">
+
+                    </div>
+                    <!-- /Server Status -->
+                    
+                </div>
+                
+                
+                
+            </div>
+        </div>
+        <!-- /Right Column-->
+    </div>
+    <!-- /Main content -->
+</div>
+    
+<!-- Copyright -->
+  <div class="footer-copyright text-center py-3 text-white">© 2020 Copyright:
+    <a href="http://localhost/"> MBCB Gaming.com</a>
+  </div>
+<!-- /Copyright -->
+
+</body>
+
+</html>
