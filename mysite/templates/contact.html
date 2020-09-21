@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+{% block title %}
+<title>Contact Us</title>
+{% endblock %}
+
+{% block main_content %}
+<div class="row mx-auto">
+        <div class="col-sm-8 shadow-sm mb-4 mx-auto bg-white rounded h-100" style="padding: 15px; margin-top: 30px;">
+            <h1 class="text-center font-weight-bold mb-4">Contact Us</h1>
+            <form class="form-group" method="post" action="forum.php">
+                <!-- Errors -->
+
+                <div class="text-danger">
+                <!-- Errors Here -->
+                </div>
+                <!-- /Errors -->
+
+                <!-- Contact Form -->
+                <div class="form-group">
+                    <label class="col_form_label">Email: </label>
+                    <input type="email" class="form-control" id="user_email" placeholder="name@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label class="col_form_label">Subject: </label>
+                    <input class="form-control" type="text" name="subject">
+                </div>
+
+                <div class="form-group">
+                    <label class="col_form_label">Message: </label>
+                    <textarea class="form-control" type="text" id="email_message" rows="3"></textarea>
+                </div>
+
+                <div class="form-group mb-5">
+                    <button class="btn btn-primary" type="submit" name="send_mail">Submit</button>
+                </div>
+
+                </form>
+                <!-- /Contact Form -->
+        </div>
+
+    </div>
+{% endblock %}
