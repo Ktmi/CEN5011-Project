@@ -25,3 +25,15 @@ def contact_view(request, *args, **kwargs):
         "nav" : "contact"
     }
     return render(request, "contact.html", contact_context)
+
+def login_view(request, *args, **kwargs):
+    login_context = {
+        "nav" : "login"
+    }
+    return render(request, "login.html", login_context)
+
+def sign_up_view(request, *args, **kwargs):
+    sign_up_context = {
+        "nav" : "sign_up"
+    }
+    return render(request, "sign_up.html", sign_up_context)
