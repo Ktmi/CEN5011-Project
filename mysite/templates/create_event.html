@@ -1,7 +1,61 @@
 {% extends "index.html" %}
-{% block title %}
-<title>Create Event</title>
-{% endblock %}
+     {% block title %}
+     <title>Create Event</title>
+     {% endblock %}
+
+
 
 {% block main_content %}
+
+    <div class="col-sm-8 shadow-sm p-4 mb-4 mx-auto bg-white rounded h-100" style="padding: 15px; margin-top: 30px;">
+
+  <form class="form-group" method="post" action="create_event.php">
+      <h1 class="mb-4 text-center font-weight-bold">Create a Meeting</h1>
+
+      <!-- Errors -->
+
+      <div class="text-danger">
+  	     <!-- Errors here -->
+      </div>
+
+  	<div class="form-group">
+  	  <label class="col_form_label">Title:</label>
+  	  <input class="form-control" type="text" name="title">
+  	</div>
+       <form class="form-group" action="/action_page.php">
+           <label for="img">Select image:</label>
+      <input type="file" id="img" name="img" accept="image/*">
+       </form>
+	  <div class="form-group">
+  	  <label for="meetingtype">Choose meeting type:</label>
+<select id="meetingtype">
+  <option value="party">Party</option>
+  <option value="studying">Studying</option>
+  <option value="event">Personal Event</option>
+  <option value="movie" selected>Movie</option>
+</select>
+  </div>
+
+	  <div class="form-group">
+  	  <label class="col_form_label">Organizer:</label>
+  	  <input class="form-control" type="text" name="organizer">
+  	</div>
+  	<div class="form-group">
+  	  <label class="col_form_label"l>Email:</label>
+  	  <input class="form-control" type="email" name="email" placeholder="example@example.com">
+  	</div>
+      <div class="form-group">
+  	  <label class="col_form_label"l>Meeting Date:</label>
+  	  <input class="form-control" type="date" name="meeting_date">
+  	</div>
+  	<div class="form-group">
+  	  <label class="col_form_label"l>Description:</label>
+  	   <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+  	</div>
+
+  	<div class="form-group">
+  	  <button type="submit" class="btn btn-primary form-control" name="create_meeting">Create my Meeting!</button>
+  	</div>
+  </form>
+</div>
 {% endblock %}
