@@ -16,12 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from pages.views import home_view,create_event_view,find_event_view,contact_view,login_view,sign_up_view
+from pages.views import home_view,create_event_view,find_event_view,contact_view,login_view,sign_up_view,faq_view,rules_view
 
 urlpatterns = [
     path('', home_view, name='home'),
     path('create_event/', create_event_view, name='create_event'),
     path('find_event/', find_event_view, name='find_event'),
+    path('faq/', faq_view, name='faq'),
+    path('rules/', rules_view, name='rules'),
     path('contact/', contact_view, name='contact'),
     path('login/', login_view, name='login'),
     path('sign_up/', sign_up_view, name='sign_up'),

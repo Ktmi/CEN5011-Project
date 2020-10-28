@@ -37,3 +37,15 @@ def sign_up_view(request, *args, **kwargs):
         "nav" : "sign_up"
     }
     return render(request, "sign_up.html", sign_up_context)
+
+def faq_view(request, *args, **kwargs):
+    faq_context = {
+        "nav" : "faq"
+    }
+    return render(request, "faq.html", faq_context)
+
+def rules_view(request, *args, **kwargs):
+    rules_context = {
+        "nav" : "rules"
+    }
+    return render(request, "rules.html", rules_context)
