@@ -25,5 +25,5 @@ urlpatterns = [
     path('contact/', contact_view, name='contact'),
     path('login/', login_view, name='login'),
     path('admin/', admin.site.urls),
-    path('auth/', include('authentication.urls'))
+    path('auth/', include('authentication.urls')),
 ]
