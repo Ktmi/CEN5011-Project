@@ -26,4 +26,5 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('admin/', admin.site.urls),
     path('auth/', include('authentication.urls')),
+    path('meet/', include('meeting.urls')),
 ]
