@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+import datetime
 
 # Create your models here.
 
@@ -20,6 +21,9 @@ class GroupMember(models.Model):
 class Event(models.Model):
     host_id = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=64)
+    date = models.DateField(default=datetime.date.today)
+    start_time = models.TimeField(default=datetime.time.min)
+    end_time = models.TimeField(default=datetime.time.max)
 
 class Attendee(models.Model):
     event_id = models.ForeignKey(Event, on_delete=models.CASCADE)
