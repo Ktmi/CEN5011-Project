@@ -125,3 +125,7 @@ STATIC_ROOT = ''
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
+#Redirect login.
+LOGIN_REDIRECT_URL = 'auth/home'
+LOGIN_URL = 'auth/login'
