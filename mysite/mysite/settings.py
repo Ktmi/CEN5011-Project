@@ -127,5 +127,5 @@ STATICFILES_DIRS = [
 ]
 
 #Redirect login.
-LOGIN_REDIRECT_URL = 'auth/home'
+LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'auth/login'
