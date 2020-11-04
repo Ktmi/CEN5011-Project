@@ -37,3 +37,9 @@ def sign_up_view(request, *args, **kwargs):
         "nav" : "sign_up"
     }
     return render(request, "sign_up.html", sign_up_context)
+
+def personal_view(request, *args, **kwargs):
+    personal_context ={
+        "nav":"login"
+    }
+    return render(request,"personal.html",personal_context)
