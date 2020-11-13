@@ -16,8 +16,4 @@ class CreateAccountView(View):
         form = CreateAccountForm(request.POST)
         if form.is_valid():
             # check if user already exists
-
-            new_user = User.objects.create_user(form.cleaned_data['username'], form.cleaned_data['email'], form.cleaned_data['password'])
-            new_user.first_name = form.cleaned_data['first_name']
-            new_user.last_name = form.cleaned_data['last_name']
-            new_user.save()
+            new_user = form.save()
