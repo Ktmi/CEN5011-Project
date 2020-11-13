@@ -17,3 +17,6 @@ class CreateAccountView(View):
         if form.is_valid():
             # check if user already exists
             new_user = form.save()
+            return render(request, 'message.html', {'title': 'Success', 'message': f'Successfully created a new account, welcome {new_user}'})
+        else:
+            return render(request, 'message.html', {'title': 'Failure', 'message': 'One or more required fields had an error in it.'})
