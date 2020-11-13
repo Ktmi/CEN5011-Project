@@ -8,11 +8,9 @@ from django.shortcuts import render
 
 class CreateAccountView(View):
 
-    return_address = '/'
-
     def get(self, request, *args, **kwargs):
         form = CreateAccountForm()
-        return render(request, 'form.html', {'form': form, 'title': 'Create Account', 'return_address': self.return_address})
+        return render(request, 'form.html', {'form': form, 'title': 'Create Account'})
 
     def post(self, request, *args, **kwargs):
         form = CreateAccountForm(request.POST)
