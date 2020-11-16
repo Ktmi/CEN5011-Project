@@ -5,11 +5,9 @@ from django.shortcuts import render
 
 class CreateMeetingView(View):
 
-    return_address = '/'
-
     def get(self, request, *args, **kwargs):
         form = CreateMeetingForm()
-        return render(request, 'form.html', {'form': form, 'title': 'Create Meeting', 'return_address': self.return_address})
+        return render(request, 'form.html', {'form': form, 'title': 'Create Meeting'})
 
     def post(self, request, *args, **kwargs):
         form = CreateMeetingForm(request.POST)
