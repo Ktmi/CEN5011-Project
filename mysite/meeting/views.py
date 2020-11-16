@@ -13,8 +13,8 @@ class CreateMeetingView(View):
 
     def post(self, request, *args, **kwargs):
         form = CreateMeetingForm(request.POST)
-        if form.is_valid() and request.user.is_authenticated():
-            event = Event(host_id = request.user.id, **form.cleaned_data)
+        if form.is_valid() and request.user.is_authenticated:
+            event = Event(host = request.user, **form.cleaned_data)
             event.save()
         else:
             pass
