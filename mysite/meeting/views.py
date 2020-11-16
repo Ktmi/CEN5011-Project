@@ -23,3 +23,17 @@ class MeetingView(View):
     def get(self, request, event_id, *args, **kwargs):
         event = Event.objects.get(pk=event_id)
         return render(request, 'event.html', {'event': event})
+
+class JoinMeetingView(View):
+    def post(self, request, event_id, *args, **kwargs):
+        event = Event.objects.get(pk=event_id)
+        if request.user.is_authenticated:
+            event.attendees.add(request.user)
+        else:
+            pass
+    def delete(self, request, event_id, *args, **kwargs):
+        event = Event.objects.get(pk=event_id)
+        if request.user.is_authenticated:
+            event.attendees.remove(request.user)
+        else:
+            pass
