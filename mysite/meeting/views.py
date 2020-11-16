@@ -37,3 +37,17 @@ class JoinMeetingView(View):
             event.attendees.remove(request.user)
         else:
             pass
+
+class EditMeetingView(View):
+    def get(self, request, event_id):
+        event = Event.objects.get(pk=event_id)
+        form = CreateMeetingForm(instance=event)
+        return render(request, 'form.html', {'form': form, 'title': 'Edit Meeting'})
+    def post(self, request, event_id):
+        event = Event.objects.get(pk=event_id)
+        form = CreateMeetingForm(request.POST, instance=event)
+        if request.user.is_authenticated and form.is_valid() and event.host == request.user:
+            form.save()
+            return redirect(f'/meet/{event.id}')
+        else:
+            return render(request, 'message.html', {'title': 'Failure', 'message': 'Failed to edit existing event.'})
