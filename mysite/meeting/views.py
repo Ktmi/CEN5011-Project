@@ -18,3 +18,9 @@ class CreateMeetingView(View):
             event.save()
         else:
             pass
+
+
+class MeetingView(View):
+    def get(self, request, event_id, *args, **kwargs):
+        event = Event.objects.get(pk=event_id)
+        return render(request, 'event.html', {'event': event})
