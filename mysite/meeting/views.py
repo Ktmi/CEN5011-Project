@@ -1,7 +1,7 @@
 from pages.models import Event
 from django.views import View
 from .forms import CreateMeetingForm
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 class CreateMeetingView(View):
 
@@ -14,8 +14,9 @@ class CreateMeetingView(View):
         if form.is_valid() and request.user.is_authenticated:
             event = Event(host = request.user, **form.cleaned_data)
             event.save()
+            return redirect(f'/meet/{event.id}')
         else:
-            pass
+            return render(request, 'message.html', {'title': 'Failure', 'message': 'Failed to create a new event.'})
 
 
 class MeetingView(View):
