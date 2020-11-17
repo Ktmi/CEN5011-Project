@@ -1,10 +1,10 @@
 from pages.models import Event
 from django.views import View
-from .forms import CreateMeetingForm
+from .forms import CreateMeetingForm, SearchForm
 from django.shortcuts import render, redirect
 #Used to encapsulate queries
 from django.db.models import Q
-from django.views.generic import ListView
+from django.views.generic import ListView, FormView
 #Require login for the view
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -60,7 +60,15 @@ class EditMeetingView(View):
             return render(request, 'message.html', {'title': 'Failure', 'message': 'Failed to edit existing event.'})
 
 
+#Search functionality
 class EventListView(ListView):
     model = Event
     template_name = 'find_event.html'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        event_list = Event.objects.filter(
+            Q(zip_code__icontains=query)
+        )
+        return event_list
 

@@ -8,8 +8,12 @@
 <div class="col-sm-2 bg-white mx-auto mt-3 h-100">
     <form class="mx-2 my-3">
         <div class="form-group">
-            <label for="Event_Name">Event Name:</label>
-            <input type="text" class="form-control" id="Event_Name" placeholder="Marathon, Movies, Video Games, ...">
+            <label for="Event_Name">ZIP Code:</label>
+
+            <form action={% url 'find_event' %} method='get'>
+                <input name='q' type='text'
+                       placeholder='Search'>
+
         </div>
         <div class="form-group">
             <label>Filters:</label>
@@ -59,7 +63,9 @@
                      alt="Test 1">
             </div>
             <div class="p-2">
+
                {% include "event_container.html" %}
+
             </div>
         </div>
     </div>
