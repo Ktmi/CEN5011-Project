@@ -2,6 +2,10 @@ from pages.models import Event
 from django.views import View
 from .forms import CreateMeetingForm
 from django.shortcuts import render, redirect
+#Used to encapsulate queries
+from django.db.models import Q
+from django.views.generic import ListView
+
 
 class CreateMeetingView(View):
 
@@ -51,3 +55,9 @@ class EditMeetingView(View):
             return redirect(f'/meet/{event.id}')
         else:
             return render(request, 'message.html', {'title': 'Failure', 'message': 'Failed to edit existing event.'})
+
+
+class EventListView(ListView):
+    model = Event
+    template_name = 'find_event.html'
+
