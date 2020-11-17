@@ -8,18 +8,15 @@ from django.shortcuts import render
 
 class CreateAccountView(View):
 
-    return_address = '/'
-
     def get(self, request, *args, **kwargs):
         form = CreateAccountForm()
-        return render(request, 'form.html', {'form': form, 'title': 'Create Account', 'return_address': self.return_address})
+        return render(request, 'form.html', {'form': form, 'title': 'Create Account'})
 
     def post(self, request, *args, **kwargs):
         form = CreateAccountForm(request.POST)
         if form.is_valid():
             # check if user already exists
-
-            new_user = User.objects.create_user(form.cleaned_data['username'], form.cleaned_data['email'], form.cleaned_data['password'])
-            new_user.first_name = form.cleaned_data['first_name']
-            new_user.last_name = form.cleaned_data['last_name']
-            new_user.save()
+            new_user = form.save()
+            return render(request, 'message.html', {'title': 'Success', 'message': f'Successfully created a new account, welcome {new_user}'})
+        else:
+            return render(request, 'message.html', {'title': 'Failure', 'message': 'One or more required fields had an error in it.'})

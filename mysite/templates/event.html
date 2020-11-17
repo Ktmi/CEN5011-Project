@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+
+{% block title %}
+ <title>{{ event.name }}</title>
+{% endblock %}
+
+{% block main_content %}
+
+<div class="col-sm-8 shadow-sm p-4 mb-4 mx-auto bg-white rounded h-100" style="padding: 15px; margin-top: 30px;">
+    <h3>{{ event.name }}</h3>
+    <h4>by: {{ event.host }}</h6>
+    <h5>Description:</h6>
+    <p>{{ event.description }}</p>
+</div>
+
+
+{% endblock %}
