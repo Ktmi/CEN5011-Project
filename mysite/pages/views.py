@@ -1,8 +1,5 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-#Login required decorator
-from django.contrib.auth.decorators import login_required
-
 
 
 # Create your views here.
@@ -12,12 +9,6 @@ def home_view(request, *args, **kwargs):
     }
     return render(request, "home.html", home_context)
 
-@login_required()
-def create_event_view(request, *args, **kwargs):
-    create_event_context = {
-        "nav" : "create_event"
-    }
-    return render(request, "create_event.html", create_event_context)
 
 def contact_view(request, *args, **kwargs):
     contact_context = {

@@ -5,9 +5,12 @@ from django.shortcuts import render, redirect
 #Used to encapsulate queries
 from django.db.models import Q
 from django.views.generic import ListView
+#Require login for the view
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class CreateMeetingView(View):
+
+class CreateMeetingView(LoginRequiredMixin,View):
 
     def get(self, request, *args, **kwargs):
         form = CreateMeetingForm()
