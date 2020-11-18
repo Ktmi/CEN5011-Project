@@ -52,6 +52,6 @@ def rules_view(request, *args, **kwargs):
 
 def personal_view(request, *args, **kwargs):
     personal_context ={
-        "nav":"login"
+        "nav":"personal"
     }
     return render(request,"personal.html",personal_context)
