@@ -16,3 +16,4 @@ class Event(models.Model):
     start_time = models.TimeField(default=datetime.time.min)
     end_time = models.TimeField(default=datetime.time.max)
     attendees = models.ManyToManyField(User, related_name='joined_events')
+    zip_code = models.CharField(max_length=5, default='00000')

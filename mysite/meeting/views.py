@@ -2,8 +2,16 @@ from pages.models import Event
 from django.views import View
 from .forms import CreateMeetingForm
 from django.shortcuts import render, redirect
+#Used to encapsulate queries
+from django.db.models import Q
+from django.views.generic import ListView, FormView
+#Require login for the view
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.paginator import Paginator
 
-class CreateMeetingView(View):
+
+
+class CreateMeetingView(LoginRequiredMixin,View):
 
     def get(self, request, *args, **kwargs):
         form = CreateMeetingForm()
@@ -51,3 +59,21 @@ class EditMeetingView(View):
             return redirect(f'/meet/{event.id}')
         else:
             return render(request, 'message.html', {'title': 'Failure', 'message': 'Failed to edit existing event.'})
+
+
+#Search functionality
+class EventListView(ListView):
+    model = Event
+    template_name = 'find_event.html'
+
+    def get_queryset(self):
+        zip = self.request.GET.get('zip')
+        name = self.request.GET.get('name')
+        event_list = Event.objects.filter(
+            Q(zip_code__icontains=zip) & Q(name__icontains=name)
+        )
+
+        return event_list
+
+
+
