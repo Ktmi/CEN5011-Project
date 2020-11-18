@@ -6,8 +6,6 @@ class CreateMeetingForm(forms.ModelForm):
 
     class Meta:
         model = Event
-        fields = ('name', 'date', 'start_time', 'end_time', 'description')
+        fields = ('name', 'date', 'start_time', 'end_time', 'description', 'zip_code')
 
 
-class SearchForm(forms.Form):
-    q = forms.CharField(label='Search', max_length=50)

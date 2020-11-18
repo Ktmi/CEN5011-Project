@@ -1,12 +1,13 @@
 from pages.models import Event
 from django.views import View
-from .forms import CreateMeetingForm, SearchForm
+from .forms import CreateMeetingForm
 from django.shortcuts import render, redirect
 #Used to encapsulate queries
 from django.db.models import Q
 from django.views.generic import ListView, FormView
 #Require login for the view
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.paginator import Paginator
 
 
 
@@ -66,9 +67,13 @@ class EventListView(ListView):
     template_name = 'find_event.html'
 
     def get_queryset(self):
-        query = self.request.GET.get('q')
+        zip = self.request.GET.get('zip')
+        name = self.request.GET.get('name')
         event_list = Event.objects.filter(
-            Q(zip_code__icontains=query)
+            Q(zip_code__icontains=zip) & Q(name__icontains=name)
         )
+
         return event_list
+
+
 
