@@ -20,10 +20,7 @@ from pages.views import home_view,create_event_view,find_event_view,contact_view
 
 urlpatterns = [
     path('', home_view, name='home'),
-    path('create_event/', create_event_view, name='create_event'),
-    path('find_event/', find_event_view, name='find_event'),
     path('contact/', contact_view, name='contact'),
-    path('login/', login_view, name='login'),
     path('admin/', admin.site.urls),
     path('personal/',personal_view,name='personal')
     path('auth/', include('authentication.urls')),
