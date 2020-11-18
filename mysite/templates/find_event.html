@@ -8,10 +8,14 @@
 <div class="col-sm-2 bg-white mx-auto mt-3 h-100">
     <form class="mx-2 my-3">
         <div class="form-group">
-            <label for="Event_Name">ZIP Code:</label>
+            <label for="Event_ZIP">ZIP Code:</label>
 
-            <form action={% url 'find_event' %} method='get'>
-                <input name='q' type='text'
+            <form action={% url 'find_event' %} method='POST'>
+                <input name='zip' type='text'
+                       placeholder='Search'>
+
+            <label for="Event_Name">Event Name:</label>
+                 <input name='name' type='text'
                        placeholder='Search'>
 
         </div>
