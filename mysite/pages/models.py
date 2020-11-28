@@ -17,3 +17,8 @@ class Event(models.Model):
     end_time = models.TimeField(default=datetime.time.max)
     attendees = models.ManyToManyField(User, related_name='joined_events')
     zip_code = models.CharField(max_length=5, default='00000')
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    bio = models.TextField(max_length=500, blank='')
+    zip_code = models.CharField(max_length=5, default='00000')
