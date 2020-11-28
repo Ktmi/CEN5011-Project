@@ -27,7 +27,8 @@ urlpatterns = [
     path('contact/', contact_view, name='contact'),
     path('login/', login_view, name='login'),
     path('admin/', admin.site.urls),
+    path('personal/',personal_view,name='personal')
     path('auth/', include('authentication.urls')),
     path('meet/', include('meeting.urls')),
-    path('personal/',personal_view,name='personal')
+>>>>>>>>> Temporary merge branch 2
 ]
