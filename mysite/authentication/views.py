@@ -25,7 +25,11 @@ class ProfileView(LoginRequiredMixin,View):
 
     def get(self,request, *args, **kwargs):
            personal_context ={
-              "nav":"login"
+              "nav":"login",
+               "user":User
            }
            return render(request,"personal.html",personal_context)
+
+    def post(self,request, *args, **kwargs):
+           u_form = UserUpdateForm()
 

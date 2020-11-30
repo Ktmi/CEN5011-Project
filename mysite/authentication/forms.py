@@ -9,6 +9,7 @@ class CreateAccountForm(UserCreationForm):
         fields = UserCreationForm.Meta.fields + ('email', 'first_name', 'last_name')
 
 class UserUpdateForm(forms.ModelForm):
+
     class Meta(UserCreationForm.Meta):
         model = User
         fields = UserCreationForm.Meta.fields + ('email', 'first_name', 'last_name')
