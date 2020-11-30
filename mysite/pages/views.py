@@ -1,6 +1,5 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home_view(request, *args, **kwargs):
@@ -28,9 +27,3 @@ def sign_up_view(request, *args, **kwargs):
     }
     return render(request, "sign_up.html", sign_up_context)
 
-@login_required
-def personal_view(request, *args, **kwargs):
-    personal_context ={
-        "nav":"login"
-    }
-    return render(request,"personal.html",personal_context)
