@@ -62,13 +62,17 @@ class EditMeetingView(View):
 
 
 #Search functionality
-class EventListView(ListView):
+class EventListView(LoginRequiredMixin,ListView):
     model = Event
     template_name = 'find_event.html'
+
+
 
     def get_queryset(self):
         zip = self.request.GET.get('zip')
         name = self.request.GET.get('name')
+        page = self.request.GET.get('page')
+
         event_list = Event.objects.filter(
             Q(zip_code__icontains=zip) & Q(name__icontains=name)
         )

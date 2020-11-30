@@ -39,9 +39,3 @@ def rules_view(request, *args, **kwargs):
         "nav" : "rules"
     }
     return render(request, "rules.html", rules_context)
-
-def personal_view(request, *args, **kwargs):
-    personal_context ={
-        "nav":"personal"
-    }
-    return render(request,"personal.html",personal_context)
