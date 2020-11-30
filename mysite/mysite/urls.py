@@ -16,7 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from pages.views import home_view,contact_view
+from pages.views import home_view,faq_view,rules_view,contact_view
+
 
 urlpatterns = [
     path('', home_view, name='home'),
@@ -24,4 +25,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('authentication.urls')),
     path('meet/', include('meeting.urls')),
+    path('faq/', faq_view, name='faq'),
+    path('rules/', rules_view, name='rules'),
 ]
