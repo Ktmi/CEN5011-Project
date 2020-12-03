@@ -25,8 +25,7 @@ class ProfileView(LoginRequiredMixin,View):
 
     def get(self,request, *args, **kwargs):
            personal_context ={
-              "nav":"login",
-               "user":User
+              "nav":"login"
            }
            return render(request,"personal.html",personal_context)
 
