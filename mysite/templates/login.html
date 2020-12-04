@@ -1,30 +1,34 @@
 {% extends "index.html" %}
+
 {% block title %}
-<title>Login</title>
+ <title>Login</title>
 {% endblock %}
 
 {% block main_content %}
+<div class="col-sm-8 shadow-sm p-4 mb-4 mx-auto bg-white rounded h-100" style="padding: 15px; margin-top: 30px;">
+  <form class="form-group" action="" method="post">
+    <h1 class="mb-4 text-center font-weight-bold">
+        Login
+    </h1>
+    {% csrf_token %}
+    {% for field in form %}
+      <div class = "form-group">
+        <label class="col_form_label">
+          {{ field.label_tag }}
+        </label>
+        {{ field }}
+        {% if field.help_text %}
+          <br>
+          <small style="color:gray">{{ field.help_text }}</small>
+        {% endif %}
+      </div>
+    {% endfor %}
+    <input class="btn btn-primary form-control" type="submit" value="Submit">
 
- <div class="col-sm-8 shadow-sm p-4 mb-4 mx-auto bg-white rounded h-100" style="padding: 15px; margin-top: 30px;">
-     <form class="form-group" method="post" align="center">
-                {% csrf_token %}
-
-                <h1 class="mb-4 text-center font-weight-bold">Login</h1>
-
-                {{ form.as_p }}
-
-                <div class="form-group mb-5">
-                    <button type="submit" class="btn btn-primary" name="login_user">Login</button>
-                </div>
-
-                <p>
-                    Not yet a member?
-                    <a href="http://127.0.0.1:8000/auth/create_account/"> Sign up </a>
-                </p>
-
-
-            </form>
-
+  </form>
+  <p>
+      Not yet a member?
+      <a href="http://127.0.0.1:8000/auth/create_account/"> Sign up </a>
+    </p>
 </div>
-
 {% endblock %}
