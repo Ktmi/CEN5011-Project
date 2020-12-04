@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
+
 # Create your views here.
 def home_view(request, *args, **kwargs):
     home_context = {
@@ -27,3 +28,14 @@ def sign_up_view(request, *args, **kwargs):
     }
     return render(request, "sign_up.html", sign_up_context)
 
+def faq_view(request, *args, **kwargs):
+    faq_context = {
+        "nav" : "faq"
+    }
+    return render(request, "faq.html", faq_context)
+
+def rules_view(request, *args, **kwargs):
+    rules_context = {
+        "nav" : "rules"
+    }
+    return render(request, "rules.html", rules_context)
