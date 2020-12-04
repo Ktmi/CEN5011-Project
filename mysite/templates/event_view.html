@@ -97,10 +97,19 @@
                                             </div>
                                         </div>
 
-                                <form method="POST" enctype="multipart/form-data">
-                                    {% csrf_token %}
-                              <button type="submit" class="profile-edit-btn" name="btnJoin" value="Join"> Join </button>
-                                </form>
+
+                   {% if attendance == "No" %}
+                               <a href="{% url 'join_event' operation='join_meeting' event_id=event.id %}">
+                                      <button type="button" class="profile-edit-btn" name="btnJoin" value="Join"> Join </button>
+                               </a>
+                   {% else %}
+                                <a href="{% url 'join_event' operation='leave_meeting' event_id=event.id %}">
+                                      <button type="button" class="profile-edit-btn" name="btnJoin" value="Leave"> Withdraw </button>
+                                </a>
+                   {% endif %}
+
+
+
                             </div>
                         </div>
                     </div>
