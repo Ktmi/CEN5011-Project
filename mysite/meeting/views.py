@@ -8,6 +8,8 @@ from django.views.generic import ListView, FormView
 #Require login for the view
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
+from django.forms.models import model_to_dict
+
 
 
 
@@ -28,9 +30,10 @@ class CreateMeetingView(LoginRequiredMixin,View):
 
 
 class MeetingView(View):
-    def get(self, request, event_id, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
+        event_id = request.GET['event_id']
         event = Event.objects.get(pk=event_id)
-        return render(request, 'event.html', {'event': event})
+        return render(request, 'event_view.html', {'event': event})
 
 class JoinMeetingView(View):
     def post(self, request, event_id, *args, **kwargs):
@@ -78,6 +81,5 @@ class EventListView(LoginRequiredMixin,ListView):
         )
 
         return event_list
-
 
 
